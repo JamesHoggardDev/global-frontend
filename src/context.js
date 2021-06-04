@@ -6,7 +6,7 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('a')
+  const [searchTerm, setSearchTerm] = useState('')
   const [lands, setLands] = useState([])
 
   const fetchLands = useCallback( async () => {
@@ -24,6 +24,7 @@ const AppProvider = ({ children }) => {
             flag,
             capital,
             currency,
+            list_id,
           } = land
 
           return {
@@ -32,6 +33,7 @@ const AppProvider = ({ children }) => {
             image: flag,
             capital: capital,
             currency: currency,
+            list_id: list_id
           }
         })
 

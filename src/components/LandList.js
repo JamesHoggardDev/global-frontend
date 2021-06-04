@@ -5,7 +5,7 @@ import { useGlobalContext } from '../context'
 
 export default function LandList() {
   const { lands, loading } = useGlobalContext()
-  // console.log(lands)   //==filteredLands with 5 k/vs
+  // console.log(lands)   //==filteredLands
   if (loading) {
     return <Loading/>
   }

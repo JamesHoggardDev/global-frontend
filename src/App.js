@@ -14,7 +14,7 @@ export default function App() {
   // const [lists, setLists] = useState([]);
   
   // handleClick = () = {
-  //   console.log("Hello this finally hit")
+  //  
   //   fetch("http://127.0.0.1:6001/lists", {
   //     method: "POST",
   //     headers: {
@@ -47,8 +47,7 @@ export default function App() {
     })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
-      //resetFormErrors();
+      // console.log(response);
     })
     .catch((error) => console.log(error));
   };
