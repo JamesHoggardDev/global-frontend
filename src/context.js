@@ -1,0 +1,71 @@
+import React, { useState, useContext, useEffect } from 'react'
+import { useCallback } from 'react'
+
+const url = 'http://127.0.0.1:6001/lands'
+const AppContext = React.createContext()
+
+const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('a')
+  const [lands, setLands] = useState([])
+
+  const fetchLands = useCallback( async () => {
+    setLoading(true)
+    try {
+      const response = await fetch(`${url}`)
+      
+      // ${searchTerm}
+      const landsArr = await response.json()
+      // console.log( lands );
+
+      if (landsArr) {
+        const lands = landsArr.map((land) => {
+          const {
+            id,
+            name,
+            flag,
+            capital,
+            currency,
+          } = land
+
+          return {
+            id: id,
+            name: name,
+            image: flag,
+            capital: capital,
+            currency: currency,
+          }
+        })
+
+        const filteredLands = lands.filter((land) => {
+          return land.name.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        // console.log(filteredLands)
+        setLands(filteredLands)
+      } else {
+        setLands([])
+      }
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  },[searchTerm])
+  useEffect(() => {
+    fetchLands()
+  }, [searchTerm, fetchLands])
+
+  return (
+    <AppContext.Provider
+      value={{ loading, lands, searchTerm, setSearchTerm }}
+    >
+      {children}
+    </AppContext.Provider>
+  )
+}
+// make sure use
+export const useGlobalContext = () => {
+  return useContext(AppContext)
+}
+
+export { AppContext, AppProvider }
