@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import pages
 import Home from "./pages/Home";
@@ -7,7 +8,51 @@ import SingleLand from "./pages/SingleLand";
 import Error from "./pages/Error";
 // import components
 import Navbar from "./components/Navbar";
-function App() {
+
+export default function App() {
+
+  // const [lists, setLists] = useState([]);
+  
+  // handleClick = () = {
+  //   console.log("Hello this finally hit")
+  //   fetch("http://127.0.0.1:6001/lists", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       id: "",
+  //       user_id: "1",
+  //       land_id: "",
+  //     }),
+  //   })
+  //     .then((r) => r.json())
+  //     .then((console.log));
+  //     // setLists(lists)
+  // }
+
+  const handleClick = (event, landId) => {
+    
+    // debugger;
+    fetch("http://127.0.0.1:6001/lists", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: "",
+        user_id: 3,
+        land_id: landId
+      }),
+    })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      //resetFormErrors();
+    })
+    .catch((error) => console.log(error));
+  };
+
   return (
     <Router>
       <Navbar />
@@ -19,7 +64,7 @@ function App() {
           <About />
         </Route>
         <Route path="/land/:id">
-          <SingleLand />
+          <SingleLand handleClick={handleClick} />
         </Route>
         <Route path="*">
           <Error />
@@ -28,5 +73,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

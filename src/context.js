@@ -14,9 +14,7 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch(`${url}`)
       
-      // ${searchTerm}
       const landsArr = await response.json()
-      // console.log( lands );
 
       if (landsArr) {
         const lands = landsArr.map((land) => {
