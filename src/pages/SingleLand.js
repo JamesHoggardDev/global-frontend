@@ -73,7 +73,8 @@ export default function SingleLand({ handleClick }) {
           {/* <Link to='/' className='btn btn-primary'>
           Favorite
         </Link> */}
-        {/* <button  onClick={console.log()} className='btn btn-primary'>Favorite</button>  */}
+        
+         <button  onClick={console.log()} className='btn btn-primary'>Favorite</button>  
         
         <br>
         </br>
@@ -86,7 +87,7 @@ export default function SingleLand({ handleClick }) {
               <span className='drink-data'>category :</span> {category}
             </p> */}
             <p>
-              <span className='drink-data'>info :</span> {capital}
+              <span className='drink-data'>capital :</span> {capital}
             </p>
             <p>
               <span className='drink-data'>currency :</span> {currency}

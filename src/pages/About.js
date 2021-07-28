@@ -7,7 +7,7 @@ import { useGlobalContext } from '../context'
 
 export default function About() {
   const [favorites, setFavorites] = useState([]);
-  const [newLands, setnewLands] = useState([]);
+  // const [newLands, setnewLands] = useState([]);
 
   const { lands, loading } = useGlobalContext()
   // console.log(lands)   //==filteredLands
@@ -36,8 +36,6 @@ export default function About() {
       </h2>
     )
   }
-
-  
 
 
   return (
