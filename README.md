@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## DEMO
 
 Enjoy scrolling through or use the real-time search bar at the top.
+
 ![DEMO](globalAnimation.gif)
 <br />
 
