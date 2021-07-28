@@ -3,6 +3,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## DEMO ![DEMO](globalAnimation.gif)
+Enjoy scrolling through or use the real-time search bar at the top.
+<br />
 
 ## Available Scripts
 
