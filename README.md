@@ -10,7 +10,6 @@ Scroll through or use the real-time search bar at the top.
 <br />
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `yarn start`
